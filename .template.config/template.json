@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "me",
+  "classifications": [ "Web", "API" ],
+  "identity": "ProjectName.WebAPI",
+  "name": "Web API Template",
+  "shortName": "api-template",
+  "sourceName": "ProjectName",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sources": [
+    {
+      "exclude": [
+        "**/.vs/**",
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        "**/*.user",
+        ".template.config/**",
+        "README.md"
+      ]
+    }
+  ]
+}
