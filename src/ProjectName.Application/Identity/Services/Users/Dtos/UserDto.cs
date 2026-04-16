@@ -1,0 +1,5 @@
+﻿using ProjectName.Domain.AggregatesModel.IdentityAggregate;
+
+namespace ProjectName.Application.Identity.Services.Users.Dtos;
+
+public record UserDto(string Email, string Password, UserRole Role);
