@@ -1,8 +1,11 @@
 <Solution>
-  <Folder Name="/Solution Items/" />
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/ProjectName.API/ProjectName.API.csproj" />
     <Project Path="src/ProjectName.Application/ProjectName.Application.csproj" Id="7a33b452-9e27-4aea-be23-2283e3eb3f79" />
+    <Project Path="src/ProjectName.Azure.Infrastructure/ProjectName.Azure.Infrastructure.csproj" Id="775d141a-f4d5-47d6-a23e-9b765a24836b" />
     <Project Path="src/ProjectName.Domain/ProjectName.Domain.csproj" Id="239bd083-cafa-484c-90a9-ce271b23ca3e" />
     <Project Path="src/ProjectName.Infrastructure/ProjectName.Infrastructure.csproj" Id="9c2b33b2-e8c8-44f4-be2e-8fdbbf3988e8" />
   </Folder>
