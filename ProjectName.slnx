@@ -9,4 +9,7 @@
     <Project Path="src/ProjectName.Domain/ProjectName.Domain.csproj" Id="239bd083-cafa-484c-90a9-ce271b23ca3e" />
     <Project Path="src/ProjectName.Infrastructure/ProjectName.Infrastructure.csproj" Id="9c2b33b2-e8c8-44f4-be2e-8fdbbf3988e8" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ProjectName.UnitTests/ProjectName.UnitTests.csproj" Id="2a670868-1869-44ef-883e-fb05863e8f01" />
+  </Folder>
 </Solution>
