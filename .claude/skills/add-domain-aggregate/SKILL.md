@@ -1,11 +1,10 @@
 ---
 name: add-domain-aggregate
-description: Generate a new domain aggregate in src/Serche.Med.Domain/ with all required files (aggregate root, domain errors, repository interface, status enum, optional child entities) following this codebase's DDD conventions. Use when the user asks to add, create, or scaffold a new domain aggregate.
-metadata: 
-    tools: Read, Write, Glob, Grep
+description: Generate a new domain aggregate in src/ProjectName.Domain/ with all required files (aggregate root, domain errors, repository interface, status enum, optional child entities) following this codebase's DDD conventions. Use when the user asks to add, create, or scaffold a new domain aggregate.
+allowed-tools: Read Write Glob Grep
 ---
 
-You are an expert in this codebase's Domain-Driven Design patterns. When given a description of a new aggregate, generate all necessary files in `src/Serche.Med.Domain/AggregatesModel/` following the exact conventions established by the existing aggregates (Product, Prescription, Pharmacy).
+You are an expert in this codebase's Domain-Driven Design patterns. When given a description of a new aggregate, generate all necessary files in `src/ProjectName.Domain/AggregatesModel/` following the exact conventions established by the existing aggregates (Product, Prescription, Pharmacy).
 
 ## User's Request
 
@@ -15,7 +14,7 @@ $ARGUMENTS
 
 ## What to Generate
 
-For a new aggregate named `{AggregateName}`, create these files under `src/Serche.Med.Domain/AggregatesModel/{AggregateName}Aggregate/`:
+For a new aggregate named `{AggregateName}`, create these files under `src/ProjectName.Domain/AggregatesModel/{AggregateName}Aggregate/`:
 
 1. `{AggregateName}.cs` — Aggregate root entity
 2. `{AggregateName}DomainErrors.cs` — Static error constants
@@ -31,7 +30,7 @@ For a new aggregate named `{AggregateName}`, create these files under `src/Serch
 ### 1. Aggregate Root Class
 
 ```csharp
-namespace Serche.Med.Domain.AggregatesModel.{AggregateName}Aggregate;
+namespace ProjectName.Domain.AggregatesModel.{AggregateName}Aggregate;
 
 public class {AggregateName} : SoftDeletableEntity<{KeyType}>, IAggregateRoot
 {
@@ -113,7 +112,7 @@ public class {AggregateName} : SoftDeletableEntity<{KeyType}>, IAggregateRoot
 ### 2. Domain Errors Class
 
 ```csharp
-namespace Serche.Med.Domain.AggregatesModel.{AggregateName}Aggregate;
+namespace ProjectName.Domain.AggregatesModel.{AggregateName}Aggregate;
 
 public static class {AggregateName}DomainErrors
 {
@@ -152,7 +151,7 @@ public static class {AggregateName}DomainErrors
 ### 3. Status Enum (only if aggregate has a lifecycle)
 
 ```csharp
-namespace Serche.Med.Domain.AggregatesModel.{AggregateName}Aggregate;
+namespace ProjectName.Domain.AggregatesModel.{AggregateName}Aggregate;
 
 public enum {AggregateName}Status
 {
@@ -165,7 +164,7 @@ public enum {AggregateName}Status
 ### 4. Repository Interface
 
 ```csharp
-namespace Serche.Med.Domain.AggregatesModel.{AggregateName}Aggregate;
+namespace ProjectName.Domain.AggregatesModel.{AggregateName}Aggregate;
 
 public interface I{AggregateName}Repository : IRepository<{AggregateName}, {KeyType}>
 {
@@ -175,14 +174,14 @@ public interface I{AggregateName}Repository : IRepository<{AggregateName}, {KeyT
 ```
 
 **Rules:**
-- Extends `IRepository<{AggregateName}, {KeyType}>` from `Serche.Med.Domain.SeedWork`
+- Extends `IRepository<{AggregateName}, {KeyType}>` from `ProjectName.Domain.SeedWork`
 - Only add methods that cannot be expressed via `FindByIdAsync` + in-memory filtering
 - Always use `CancellationToken cancellationToken = default` as the last parameter
 
 ### 5. Child Entity (only if the aggregate has child entities)
 
 ```csharp
-namespace Serche.Med.Domain.AggregatesModel.{AggregateName}Aggregate;
+namespace ProjectName.Domain.AggregatesModel.{AggregateName}Aggregate;
 
 public class {ChildEntity} : Entity<long>
 {
@@ -232,7 +231,7 @@ public class {ChildEntity} : Entity<long>
 
 ## ValidationHelpers Reference
 
-All methods are static, in `Serche.Med.Domain.Common.Validation.ValidationHelpers`:
+All methods are static, in `ProjectName.Domain.Common.Validation.ValidationHelpers`:
 
 | Method | Use when |
 |---|---|
@@ -250,13 +249,13 @@ All methods are static, in `Serche.Med.Domain.Common.Validation.ValidationHelper
 
 ## File Placement and Namespace
 
-- Directory: `src/Serche.Med.Domain/AggregatesModel/{AggregateName}Aggregate/`
-- Namespace: `Serche.Med.Domain.AggregatesModel.{AggregateName}Aggregate`
+- Directory: `src/ProjectName.Domain/AggregatesModel/{AggregateName}Aggregate/`
+- Namespace: `ProjectName.Domain.AggregatesModel.{AggregateName}Aggregate`
 - Required usings (add only what's used):
   ```csharp
-  using Serche.Med.Domain.Common.ResultPattern;
-  using Serche.Med.Domain.Common.Validation;
-  using Serche.Med.Domain.SeedWork;
+  using ProjectName.Domain.Common.ResultPattern;
+  using ProjectName.Domain.Common.Validation;
+  using ProjectName.Domain.SeedWork;
   ```
 
 ---
